@@ -3,11 +3,10 @@ DROP TABLE IF EXISTS Mudel CASCADE;
 CREATE TABLE Mudel
 (
 	MUDELI_KOOD smallint NOT NULL,
-	nimetus varchar(50)	 NOT NULL,
+	nimetus nimetus,
 	MARGI_KOOD smallint NOT NULL,
 	CONSTRAINT PK_Mudel PRIMARY KEY (MUDELI_KOOD),
 	CONSTRAINT UC_MUDELI_NIMETUS UNIQUE (nimetus),
-	CONSTRAINT CK_Mudeli_nimetus CHECK (nimetus !~ '^[[:space:]]*$'),
 	CONSTRAINT FK_Mudel_Margi_kood FOREIGN KEY (MARGI_KOOD) REFERENCES Mark (MARGI_KOOD) ON DELETE No Action ON UPDATE Cascade
 );
 

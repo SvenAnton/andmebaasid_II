@@ -2,10 +2,9 @@ DROP TABLE IF EXISTS Riik CASCADE;
 
 CREATE TABLE Riik
 (
-	RIIGI_KOOD varchar(3)	 NOT NULL,
-	nimetus varchar(255)	 NOT NULL,
-	CONSTRAINT PK_Riik PRIMARY KEY (RIIGI_KOOD),
-	CONSTRAINT UC_RIIGI_NIMETUS UNIQUE (nimetus),
-	CONSTRAINT CK_RIIGI_RIIGI_KOOD CHECK (nimetus !~ '^[[:space:]]*$'),
-  CONSTRAINT CK_RIIGI_NIMETUS CHECK (nimetus::text ~ '^[A-Z]{3}$')
+	riigi_kood varchar(3)	 NOT NULL,
+	nimetus nimetus,
+	CONSTRAINT PK_Riik PRIMARY KEY (riigi_kood),
+	CONSTRAINT UC_Riik_nimetus UNIQUE (nimetus),
+	CONSTRAINT CK_Riik_riigi_kood CHECK (riigi_kood ~ '^[A-Z]{3}$')
 );
