@@ -27,7 +27,7 @@ CREATE TABLE Isik
 	CONSTRAINT CK_Isik_reg_aeg CHECK (reg_aeg BETWEEN '2010-01-01 00:00:00'::timestamp without time zone AND '2100-12-31 23:59:59'::timestamp without time zone),
 	CONSTRAINT CK_Isik_eesnimi CHECK (eesnimi !~ '^[[:space:]]*$'),
 	CONSTRAINT CK_Isik_perenimi CHECK (perenimi !~ '^[[:space:]]*$'),
-	CONSTRAINT FK_Isik_isiku_seisundi_liigi_kood FOREIGN KEY (isiku_seisundi_liigi_kood) REFERENCES Isiku_seisundi_liik (isiku_seisundi_liigi_kood)  ON DELETE No Action ON UPDATE Cascade,
+	CONSTRAINT FK_Isik_isiku_seisundi_liigi_kood FOREIGN KEY (isiku_seisundi_liigi_kood) REFERENCES isiku_seisundi_liik (isiku_seisundi_liigi_kood)  ON DELETE No Action ON UPDATE Cascade,
 	CONSTRAINT FK_Isik_isikukoodi_riik FOREIGN KEY (isikukoodi_riik) REFERENCES Riik (riigi_kood) ON DELETE No Action ON UPDATE Cascade
 )
 ;
