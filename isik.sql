@@ -30,6 +30,9 @@ CREATE TABLE Isik
 	CONSTRAINT FK_Isik_isiku_seisundi_liigi_kood FOREIGN KEY (isiku_seisundi_liigi_kood) REFERENCES isiku_seisundi_liik (isiku_seisundi_liigi_kood)  ON DELETE No Action ON UPDATE Cascade,
 	CONSTRAINT FK_Isik_isikukoodi_riik FOREIGN KEY (isikukoodi_riik) REFERENCES Riik (riigi_kood) ON DELETE No Action ON UPDATE Cascade
 )
+WITH (
+  FILLFACTOR=90
+)
 ;
 CREATE INDEX IXFK_Isik_isiku_seisundi_liigi_kood ON Isik (isiku_seisundi_liigi_kood ASC);
 CREATE INDEX IXFK_Isik_isikukoodi_riik ON Isik (isikukoodi_riik ASC);
