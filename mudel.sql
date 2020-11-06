@@ -6,7 +6,7 @@ CREATE TABLE Mudel
 	nimetus nimetus,
 	margi_kood smallint NOT NULL,
 	CONSTRAINT PK_Mudel PRIMARY KEY (MUDELI_KOOD),
-	CONSTRAINT UC_MUDELI_NIMETUS UNIQUE (nimetus),
+	CONSTRAINT UC_MUDEL_NIMETUS UNIQUE (nimetus),
 	CONSTRAINT FK_Mudel_margi_kood FOREIGN KEY (margi_kood) REFERENCES Mark (margi_kood) ON DELETE No Action ON UPDATE Cascade
 );
 
