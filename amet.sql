@@ -10,4 +10,7 @@ CREATE TABLE Amet
 	CONSTRAINT UC_Amet_nimetus UNIQUE (nimetus),
 	CONSTRAINT CK_Amet_kirjeldus CHECK (kirjeldus !~ '^[[:space:]]*$')
 )
+WITH (
+  FILLFACTOR=90
+)
 ;
