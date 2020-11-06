@@ -8,6 +8,7 @@ CREATE TABLE Auto
     acriss_kood varchar(4)	 NOT NULL,
     kohtade_arv smallint NOT NULL,
     mudeli_kood smallint NOT NULL,
+    margi_kood smallint NOT NULL,
     kytuse_tyybi_kood smallint NOT NULL,
     keretyybi_kood smallint NOT NULL,
     registreerija_id bigint NOT NULL,
@@ -34,3 +35,4 @@ CREATE INDEX IXFK_Auto_Keretyyp ON Auto (keretyybi_kood ASC);
 CREATE INDEX IXFK_Auto_Kytuse_tyyp ON Auto (kytuse_tyybi_kood ASC);
 CREATE INDEX IXFK_Auto_Mudel ON Auto (mudeli_kood ASC);
 CREATE INDEX IXFK_Auto_Tootaja ON Auto (registreerija_id ASC);
+CREATE INDEX IXFK_Auto_Auto_seisundi_liigi_kood ON Auto (auto_seisundi_liigi_kood ASC);
