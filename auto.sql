@@ -8,7 +8,7 @@ CREATE TABLE Auto
     acriss_kood varchar(4)	 NOT NULL,
     kohtade_arv smallint NOT NULL,
     mudeli_kood smallint NOT NULL,
-    margi_kood smallint NOT NULL,
+    -- Kui margi kood tuleb mudelist, siis ei ole seda siia eraldi tarvis.
     kytuse_tyybi_kood smallint NOT NULL,
     keretyybi_kood smallint NOT NULL,
     registreerija_id bigint NOT NULL,

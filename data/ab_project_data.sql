@@ -100,14 +100,14 @@ insert into auto_kategooria_omamine(auto_kood, auto_kategooria_kood) values ('1'
 insert into auto_kategooria_omamine(auto_kood, auto_kategooria_kood) values ('3', '2');
 insert into auto_kategooria_omamine(auto_kood, auto_kategooria_kood) values ('4', '1');
 
-insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, margi_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-values ('1', 'KM8SC13DX6U081851', 'IDMR', 3, '1', '1', '2','1', '1', '1');
-insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, margi_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-values ('2', '1GKS1KE09ER265615', 'MDMR', 4, '2', '2', '1','2', '1', '2');
-insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, margi_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-values ('3', '1FMHK8F80CGA27344', 'NDMR', 5, '1', '1', '2','2', '2', '1');
-insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, margi_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-values ('4', '4A3AA46G41E148991', 'MDMR', 4, '1', '2', '3','3', '4', '2');
+insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
+values ('1', 'KM8SC13DX6U081851', 'IDMR', 3, '1', '2','1', '1', '1');
+insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
+values ('2', '1GKS1KE09ER265615', 'MDMR', 4, '2', '1','2', '1', '2');
+insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
+values ('3', '1FMHK8F80CGA27344', 'NDMR', 5, '1', '2','2', '2', '1');
+insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood, keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
+values ('4', '4A3AA46G41E148991', 'MDMR', 4, '1', '3','3', '4', '2');
 
 insert into kliendi_seisundi_liik(kliendi_seisundi_liigi_kood, nimetus)
 VALUES (1, 'Aktiivne'), (2, 'Mitte-aktiivne');
