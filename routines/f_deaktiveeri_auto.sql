@@ -1,25 +1,14 @@
 -- OP4 Muuda Auto mitteaktiivseks
 create or replace function f_deaktiveeri_auto(p_auto_kood integer)
     returns integer
-    language plpgsql
+    language sql
 AS
 $$
-declare
-    result integer;
-begin
-    select auto_kood into result
-    from auto
-    where auto_kood = p_auto_kood
-      and auto_seisundi_liigi_kood = 2 
-        for update;
-
-    update auto
-    set auto_seisundi_liigi_kood = 3
-    where auto_kood = p_auto_kood
-      and auto_seisundi_liigi_kood = 2;
-
-    return result;
-end
+update auto
+set auto_seisundi_liigi_kood = 3
+where auto_kood = p_auto_kood
+  and auto_seisundi_liigi_kood = 2
+returning auto_kood;
 $$
 ;
 
