@@ -18,7 +18,7 @@ CREATE TABLE Isik
 	CONSTRAINT PK_Isik PRIMARY KEY (isik_id),
 	CONSTRAINT CK_Isik_synni_kp CHECK (synni_kp BETWEEN '1900-01-01 00:00:00'::timestamp without time zone AND '2100-12-31 23:59:59'::timestamp without time zone),
 	CONSTRAINT CK_Isik_synni_kp_reg_aeg CHECK (synni_kp <= reg_aeg),
-  CONSTRAINT CK_Isik_e_meil CHECK (e_meil ~ '@'),
+  	CONSTRAINT CK_Isik_e_meil CHECK (e_meil ~ '@'),
 	CONSTRAINT CK_Isik_elukoht CHECK (elukoht !~ '^[[:space:]]*$' and elukoht !~ '^[[:digit:]]*$'),
 	CONSTRAINT CK_Isik_nimi CHECK (eesnimi IS NOT NULL OR perenimi IS NOT NULL),
 	CONSTRAINT UC_Isik_id_riik UNIQUE (isikukood,isikukoodi_riik),
@@ -37,3 +37,16 @@ WITH (
 CREATE INDEX IXFK_Isik_isiku_seisundi_liigi_kood ON Isik (isiku_seisundi_liigi_kood ASC);
 CREATE INDEX IXFK_Isik_isikukoodi_riik ON Isik (isikukoodi_riik ASC);
 CREATE UNIQUE INDEX IX_Isik_e_meil ON Isik (LOWER(e_meil));
+
+-- auth related updates 05/12/2020
+ALTER TABLE isik
+    ADD COLUMN kasutajanimi varchar(254) GENERATED ALWAYS AS (e_meil) STORED,
+    ADD COLUMN pildi_aadress varchar(256),
+    ADD COLUMN on_aktiivne boolean NOT NULL DEFAULT FALSE,
+    ADD COLUMN keelekood varchar(10),
+    ADD COLUMN aktiveerimise_voti varchar(20),
+    ADD COLUMN reset_voti varchar(20),
+    ADD COLUMN registreerija_id varchar(50),
+    ADD COLUMN reset_aeg timestamp,
+    ADD COLUMN viimati_muudetud_id varchar(50),
+    ADD COLUMN viimati_muudetud_aeg timestamp;
