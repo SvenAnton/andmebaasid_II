@@ -13,3 +13,7 @@ ALTER TABLE jhi_persistent_audit_evt_data SET SCHEMA jhi;
 -- remove on deleted cascade from auto_kategooria
 ALTER TABLE auto_kategooria DROP CONSTRAINT fk_auto_kategooria_auto_kategooria_tyyp;                                                                                                                                           
 ALTER TABLE auto_kategooria ADD CONSTRAINT FK_Auto_kategooria_Auto_kategooria_tyyp FOREIGN KEY (auto_kategooria_tyybi_kood) REFERENCES Auto_kategooria_tyyp (auto_kategooria_tyybi_kood) ON DELETE NO ACTION ON UPDATE Cascade;
+
+-- drop liquibase tables
+drop table databasechangeloglock;
+drop table databasechangelog;
