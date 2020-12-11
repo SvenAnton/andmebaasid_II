@@ -1,15 +1,15 @@
 -- OP4 Muuda Auto mitteaktiivseks
-create or replace function f_deaktiveeri_auto(p_auto_kood integer)
-    returns integer
-    language sql
+CREATE OR REPLACE FUNCTION f_deaktiveeri_auto(p_auto_kood integer)
+    RETURNS integer
+    LANGUAGE sql
 AS
 $$
-update auto
-set auto_seisundi_liigi_kood = 3
-where auto_kood = p_auto_kood
-  and auto_seisundi_liigi_kood = 2
-returning auto_kood;
+UPDATE auto
+SET auto_seisundi_liigi_kood = 3
+WHERE auto_kood = p_auto_kood
+  AND auto_seisundi_liigi_kood = 2
+RETURNING auto_kood;
 $$
 ;
 
-comment on function f_deaktiveeri_auto(p_auto_kood integer) is 'OP4 Muuda Auto mitteaktiivseks';
+COMMENT ON FUNCTION f_deaktiveeri_auto(p_auto_kood integer) is 'OP4 Muuda Auto mitteaktiivseks. Auto haldur vaatab aktiivsete Autode nimekirja, valib sealt Auto ja muudab selle mitteaktiivseks.';

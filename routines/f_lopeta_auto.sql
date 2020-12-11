@@ -1,15 +1,15 @@
 -- OP5 Lõpeta Auto
-create or replace function f_lopeta_auto(p_auto_kood integer)
-    returns integer
-    language sql
+CREATE OR REPLACE FUNCTION f_lopeta_auto(p_auto_kood integer)
+    RETURNS integer
+    LANGUAGE sql
 AS
 $$
-update auto
-set auto_seisundi_liigi_kood = 4
-where auto_kood = p_auto_kood
-    and auto_seisundi_liigi_kood in (2, 3)
-returning auto_kood;
+UPDATE auto
+SET auto_seisundi_liigi_kood = 4
+WHERE auto_kood = p_auto_kood
+    AND auto_seisundi_liigi_kood IN (2, 3)
+RETURNING auto_kood;
 $$
 ;
 
-comment on function f_lopeta_auto(p_auto_kood integer) is 'OP5 Lõpeta Auto';
+COMMENT ON FUNCTION f_lopeta_auto(p_auto_kood integer) IS 'OP5 Lõpeta Auto.Juhataja vaatab aktiivsete või mitteaktiivsete Autode nimekirja, valib sealt Auto ja lõpetab selle';
