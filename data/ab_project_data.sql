@@ -114,3 +114,7 @@ VALUES (1, 'Aktiivne'), (2, 'Mitte-aktiivne');
 
 insert into klient(isik_id, kliendi_seisundi_liigi_kood, on_nous_tylitamisega)
 VALUES (1, 1, true), (2, 2, false);
+
+INSERT INTO isiku_seisundi_liik(isiku_seisundi_liigi_kood, nimetus)
+VALUES (3, 'Aktiivne'),
+       (4, 'Mitteaktiivne');
