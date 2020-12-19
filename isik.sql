@@ -66,3 +66,6 @@ ALTER TABLE isik ALTER COLUMN kasutajanimi SET NOT NULL;
 ALTER TABLE isik ADD CONSTRAINT uc_isik_kasutajanimi UNIQUE (kasutajanimi);	
 ALTER TABLE isik ADD CONSTRAINT ck_isik_reset_aeg CHECK (reset_aeg BETWEEN '2010-01-01 00:00:00'::timestamp without time zone AND '2100-12-31 23:59:59'::timestamp without time zone);
 
+ALTER TABLE isik DROP CONSTRAINT uc_isik_kasutajanimi;
+CREATE UNIQUE INDEX IX_Isik_kasutajanimi ON Isik (LOWER(kasutajanimi));
+
