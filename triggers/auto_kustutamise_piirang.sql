@@ -4,7 +4,7 @@ create or replace function f_auto_kustutamise_piirang() RETURNS trigger AS $f_au
         IF old.auto_seisundi_liigi_kood != 4 THEN
             RAISE EXCEPTION 'Autot, mille staatus ei ole lõpetatud olekus, ei saa kustutada.';
         END IF;
-        RETURN new;
+        RETURN old;
     END;
     $f_auto_kustutamise_piirang$ LANGUAGE plpgsql;
 
