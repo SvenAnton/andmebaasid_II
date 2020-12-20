@@ -1,7 +1,7 @@
 create or replace function f_auto_kustutamise_piirang() RETURNS trigger AS $f_auto_kustutamise_piirang$
     BEGIN
         -- Kontrolli, et auto seisundi liik oleks lõpetatud
-        IF old.auto_seisundi_liigi_kood != 4 THEN
+        IF old.auto_seisundi_liigi_kood <> 4 THEN
             RAISE EXCEPTION 'Autot, mille staatus ei ole lõpetatud olekus, ei saa kustutada.';
         END IF;
         RETURN old;
@@ -11,7 +11,7 @@ create or replace function f_auto_kustutamise_piirang() RETURNS trigger AS $f_au
 COMMENT ON FUNCTION f_auto_kustutamise_piirang() IS 'Takista auto kustutamine, kui auto staatus ei ole lõpetatud';
 ALTER FUNCTION f_auto_kustutamise_piirang() OWNER TO t200582;
 
-drop trigger auto_kustutamise_piirang on auto;
+DROP trigger auto_kustutamise_piirang ON AUTO;
 
-create trigger auto_kustutamise_piirang before delete on auto
-    for each row execute function f_auto_kustutamise_piirang();
+CREATE trigger auto_kustutamise_piirang BEFORE DELETE ON AUTO
+    for each ROW EXECUTE FUNCTION f_auto_kustutamise_piirang();
