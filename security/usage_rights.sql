@@ -35,3 +35,7 @@ grant select on v_auto, v_auto_koondaruanne, v_auto_list, v_lopeta_auto to appli
 
 
 ALTER VIEW public.v_auto SET (security_barrier);
+
+-- 22-12-2020
+GRANT SELECT ON v_isik to application;
+REVOKE SELECT ON isik, isiku_seisundi_liik FROM application;
