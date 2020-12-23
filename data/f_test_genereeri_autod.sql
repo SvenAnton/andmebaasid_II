@@ -32,7 +32,10 @@ comment on function f_test_genereeri_autod(rows int) is 'Create test data for ta
 
 insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood,
                  keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-select * from create_rand_cars(10000);
+select * from f_test_genereeri_autod(10000);
+
+-- SELLEKS ET TEHA MUUD REG KUUP2EVAD
+update auto set reg_aeg='2019-12-23' where auto_kood % 2 = 0 AND auto_seisundi_liigi_kood=1;
 
 -- Check number of autos
 select count(*) from auto;
@@ -40,3 +43,4 @@ select count(*) from auto;
 -- For deletion of autos
 update auto set auto_seisundi_liigi_kood=4;
 delete from auto;
+
