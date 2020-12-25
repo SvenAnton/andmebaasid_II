@@ -11,5 +11,7 @@ DROP trigger auto_kustutamise_piirang ON AUTO;
 
 CREATE trigger auto_kustutamise_piirang BEFORE DELETE ON AUTO
     FOR EACH ROW
-    WHEN (OLD.auto_seisundi_liigi_kood NOT IN (1, 3))
+    WHEN (OLD.auto_seisundi_liigi_kood != 1)
     EXECUTE FUNCTION f_auto_kustutamise_piirang();
+
+select * from auto_seisundi_liik;

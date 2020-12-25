@@ -30,9 +30,7 @@ comment on function f_test_genereeri_autod(rows int) is 'Create test data for ta
 
 -- ABIFUNKTSIOONID
 
-insert into AUTO(auto_kood, vin_kood, acriss_kood, kohtade_arv, mudeli_kood, kytuse_tyybi_kood,
-                 keretyybi_kood, auto_seisundi_liigi_kood, registreerija_id)
-select * from f_test_genereeri_autod(10000);
+
 
 -- SELLEKS ET TEHA MUUD REG KUUP2EVAD
 update auto set reg_aeg='2019-12-23' where auto_kood % 2 = 0 AND auto_seisundi_liigi_kood=1;
