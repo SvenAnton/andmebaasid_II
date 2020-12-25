@@ -25,5 +25,5 @@ FROM auto a
          LEFT JOIN auto_kategooria_tyyp akt on ak.auto_kategooria_tyybi_kood = akt.auto_kategooria_tyybi_kood
 GROUP BY a.auto_kood, a.acriss_kood, a.vin_kood, a.kohtade_arv, a.reg_aeg, mk.nimetus, md.nimetus, krt.nimetus, kt.nimetus, aslk.nimetus, i.eesnimi, i.perenimi, i.e_meil;
 
-COMMENT ON VIEW v_auto IS 'Auto detaili vaade';
+COMMENT ON VIEW v_auto IS 'Auto detaili vaade.Süsteem kuvab vaatamiseks mõeldud väljades andmed kõigi Auto ja selle võimalike alamtüüpide omaduste ning seoste kohta. Muuhulgas kuvab süsteem Autode põhiandmed (Auto_kood, acriss kood, vin kood, kohtade arv, marki nimetus, mudeli nimetus, keretüübi nimetus, kütuse tüübi nimetus, registreerimise aeg, registreerinud töötaja eesnimi, perenimi ja e-posti aadress) (OP8.2) ning sellega seotud kategooriate ja kategooriate tüüpide nimetused.';
 

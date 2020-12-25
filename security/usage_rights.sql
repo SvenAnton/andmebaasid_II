@@ -39,3 +39,9 @@ ALTER VIEW public.v_auto SET (security_barrier);
 -- 22-12-2020
 GRANT SELECT ON v_isik to application;
 REVOKE SELECT ON isik, isiku_seisundi_liik FROM application;
+
+-- 23-12-2020
+REVOKE EXECUTE ON ROUTINE public.f_eemalda_auto_kategooriast(p_auto_kood integer, p_auto_kategooria_kood integer) FROM PUBLIC;
+REVOKE EXECUTE ON ROUTINE public.f_lisa_auto_kategooriasse(p_auto_kood integer, p_auto_kategooria_kood integer) FROM PUBLIC;
+REVOKE EXECUTE ON ROUTINE public.f_registreeri_auto(p_auto_kood integer, p_registreerija_id integer, p_acriss_kood character varying, p_kohtade_arv smallint, p_vin_kood character varying, p_keretyybi_kood smallint, p_kytuse_tyybi_kood smallint, p_mudeli_kood smallint) FROM PUBLIC;
+REVOKE EXECUTE ON ROUTINE public.f_unusta_auto(p_auto_kood integer) FROM PUBLIC;
