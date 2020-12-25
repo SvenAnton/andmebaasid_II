@@ -45,3 +45,7 @@ REVOKE EXECUTE ON ROUTINE public.f_eemalda_auto_kategooriast(p_auto_kood integer
 REVOKE EXECUTE ON ROUTINE public.f_lisa_auto_kategooriasse(p_auto_kood integer, p_auto_kategooria_kood integer) FROM PUBLIC;
 REVOKE EXECUTE ON ROUTINE public.f_registreeri_auto(p_auto_kood integer, p_registreerija_id integer, p_acriss_kood character varying, p_kohtade_arv smallint, p_vin_kood character varying, p_keretyybi_kood smallint, p_kytuse_tyybi_kood smallint, p_mudeli_kood smallint) FROM PUBLIC;
 REVOKE EXECUTE ON ROUTINE public.f_unusta_auto(p_auto_kood integer) FROM PUBLIC;
+
+
+-- 25.12.2020
+revoke execute on function f_aktiveeri_auto, f_deaktiveeri_auto, f_muuda_auto from application;
